@@ -1,0 +1,23 @@
+CC = gcc
+AR = ar
+CFLAGS = -Wall -Wextra -O3 -march=native -fpic
+SRC = qn_stat.c
+OBJECT = $(patsubst %.c, %.o, $(SRC))
+SHARED_LIB = $(patsubst %.c, %.so, $(SRC))
+STATIC_LIB = $(patsubst %.c, %.a, $(SRC))
+
+.PHONY : clean
+
+all: $(SHARED_LIB) $(STATIC_LIB)
+
+$(OBJECT): $(SRC)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(SHARED_LIB): $(OBJECT)
+	$(CC) -shared $< -o $@
+
+$(STATIC_LIB): $(OBJECT)
+	$(AR) cr $(STATIC_LIB) $(OBJECT)
+
+clean:
+	rm -f $(OBJECT) $(SHARED_LIB) $(STATIC_LIB)
