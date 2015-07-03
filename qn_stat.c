@@ -82,7 +82,7 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 	double trial;
 	bool found;
 
-	size_t i, h, j, jj, jh;
+	size_t h, j, jh;
 	uint64_t sump, sumq;
 
 	double dn;
@@ -95,7 +95,7 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 	memcpy(y, x, n*sizeof(double));
 	qsort(y, n, sizeof(double), cmp_double);
 
-	for (i = 0; i < n; ++i)
+	for (size_t i = 0; i < n; ++i)
 	{
 		left[i] = n - i + 1;
 		right[i] = (i <= h) ? n : n - (i - h);
@@ -110,7 +110,7 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 	{
 		j = 0;
 
-		for (i = 1; i < n; ++i)
+		for (size_t i = 1; i < n; ++i)
 		{
 			if (left[i] <= right[i])
 			{
@@ -123,7 +123,7 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 		trial = whimed(work, weight, j, workspace);
 
 		j = 0;
-		for (i = n; i--;)
+		for (size_t i = n; i--;)
 		{
 			while (j < n && (y[i] - y[n - j - 1]) < trial)
 				++j;
@@ -131,7 +131,7 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 		}
 
 		j = n + 1;
-		for (i = 0; i < n; ++i)
+		for (size_t i = 0; i < n; ++i)
 		{
 			while ((y[i] - y[n - j + 1]) > trial)
 				--j;
@@ -139,7 +139,7 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 		}
 		sump = 0;
 		sumq = 0;
-		for (i = 0; i < n; ++i)
+		for (size_t i = 0; i < n; ++i)
 		{
 			sump += p[i];
 			sumq += q[i] - 1;
@@ -147,7 +147,7 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 
 		if (knew <= sump)
 		{
-			for (i = 0; i < n; ++i)
+			for (size_t i = 0; i < n; ++i)
 			{
 				right[i] = p[i];
 			}
@@ -155,7 +155,7 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 		} 
 		else if (knew > sumq)
 		{
-			for (i = 0; i < n; ++i)
+			for (size_t i = 0; i < n; ++i)
 			{
 				left[i] = q[i];
 			}
@@ -170,9 +170,9 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 	if (! found)
 	{
 		j = 0;
-		for (i = 1; i < n; ++i)
+		for (size_t i = 1; i < n; ++i)
 		{
-			for (jj = left[i]; jj <= right[i]; ++jj)
+			for (size_t jj = left[i]; jj <= right[i]; ++jj)
 			{
 				work[j] = (y[i] - y[n - jj]);
 				j++;
@@ -254,14 +254,14 @@ static double whimed(double* a, uint64_t* w, size_t n, qn_stat_workspace* worksp
 	double* a_cand = workspace->a_cand;
 	double* w_cand = workspace->w_cand;
 
-	size_t i, kcand;
+	size_t kcand;
 
 	uint64_t wleft, wmid, wright, w_tot, wrest;
 
 	double trial;
 
 	w_tot = 0;
-	for (i = 0; i < n; ++i)
+	for (size_t i = 0; i < n; ++i)
 	{
 		w_tot += w[i];
 	}
@@ -272,7 +272,7 @@ static double whimed(double* a, uint64_t* w, size_t n, qn_stat_workspace* worksp
 		trial = select_kth_element(a, n, n/2, workspace->b);
 
 		wleft = 0; wmid = 0; wright= 0;
-		for (i = 0; i < n; ++i)
+		for (size_t i = 0; i < n; ++i)
 		{
 			if (a[i] < trial)
 				wleft += w[i];
@@ -285,7 +285,7 @@ static double whimed(double* a, uint64_t* w, size_t n, qn_stat_workspace* worksp
 		kcand = 0;
 		if (2 * (wrest + wleft) > w_tot)
 		{
-			for (i = 0; i < n; ++i)
+			for (size_t i = 0; i < n; ++i)
 			{
 				if (a[i] < trial)
 				{
@@ -296,7 +296,7 @@ static double whimed(double* a, uint64_t* w, size_t n, qn_stat_workspace* worksp
 		}
 		else if (2 * (wrest + wleft + wmid) <= w_tot)
 		{
-			for (i = 0; i < n; ++i)
+			for (size_t i = 0; i < n; ++i)
 			{
 				if (a[i] > trial)
 				{
@@ -313,7 +313,7 @@ static double whimed(double* a, uint64_t* w, size_t n, qn_stat_workspace* worksp
 		}
 
 		n = kcand;
-		for (i = 0; i < n; ++i)
+		for (size_t i = 0; i < n; ++i)
 		{
 			a[i] = a_cand[i];
 			w[i] = w_cand[i];

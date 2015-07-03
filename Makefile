@@ -1,6 +1,6 @@
 CC = gcc
 AR = ar
-CFLAGS = -Wall -Wextra -O3 -march=native -fpic
+CFLAGS = -std=c99 -Wall -Wextra -O3 -march=native -fpic
 SRC = qn_stat.c
 OBJECT = $(patsubst %.c, %.o, $(SRC))
 SHARED_LIB = $(patsubst %.c, %.so, $(SRC))
