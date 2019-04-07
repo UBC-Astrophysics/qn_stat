@@ -25,6 +25,17 @@ static int cmp_double(const void*, const void*);
 static double whimed(double*, uint64_t*, size_t, qn_stat_workspace*);
 static double select_kth_element(double*, size_t, size_t, double*);
 
+
+double qn_calc (const double* x, const size_t n) {
+  double res;
+  qn_stat_workspace* workspace = qn_stat_alloc(n);
+
+  res = qn_stat(x,n,workspace);
+  qn_stat_free(workspace);
+  return(res);
+}
+
+
 qn_stat_workspace* qn_stat_alloc(const size_t n_max)
 {
 	qn_stat_workspace* workspace = 
