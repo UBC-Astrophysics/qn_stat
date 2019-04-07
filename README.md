@@ -3,17 +3,16 @@ C implementation of Rousseeuw and Croux' Qn robust measure of scale
 
 Python Wrapper:  you may have to add the current directory in front of 'qn_stat.so' in qn_calc.py: replace 'qn_stat.so' with './qn_stat.so'
 ~~~
-  In [11]:
-    from qn_calc import qn_calc
-    import numpy as np
-    from qn_calc import qn_calc
-    import numpy as np
+  In [11]: from qn_calc import qn_calc
+           import numpy as np
+           from qn_calc import qn_calc
+           import numpy as np
+           
     0.002 seconds
  
-In [13]:
-
-   for i in range(10): print(qn_calc(np.random.normal(size=10000)))
-   0.127 seconds
+In [13]: for i in range(10): print(qn_calc(np.random.normal(size=10000)))
+         0.127 seconds
+         
    0.9988082584224582
    1.0005799701197495
    0.994399639915227
