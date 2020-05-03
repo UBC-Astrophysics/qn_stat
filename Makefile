@@ -10,6 +10,8 @@ STATIC_LIB = $(patsubst %.c, %.a, $(SRC))
 
 all: $(SHARED_LIB) $(STATIC_LIB)
 
+hlqest.py : hlqest.f
+	python -m numpy.f2py -c -m hlqest hlqest.f
 $(OBJECT): $(SRC)
 	$(CC) $(CFLAGS) -c $< -o $@
 
