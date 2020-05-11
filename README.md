@@ -25,7 +25,15 @@ In [12]: for i in range(10): print(qn_calc(np.random.normal(size=10000)))
    0.9998017180779251
 ~~~
 
-Or you can try the robusttest.py program
+Or you can try the robusttest.py program to compare different estimators of the width:
+* Standard Deviation (std)
+* Q<sub>n</sub>
+* Median Absolute Deviation (MAD)
+and estimators of the centre:
+* Mean
+* Median
+* Hodge-Lehman (HL)
+The best combination of robustness and efficiency is Q<sub>n</sub> and Hodge-Lehman.
 ~~~
 heyl@evi qn_stat-master% python robusttest.py 
 Mean Qn value:     1.00005
