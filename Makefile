@@ -8,7 +8,7 @@ STATIC_LIB = $(patsubst %.c, %.a, $(SRC))
 
 .PHONY : clean
 
-all: $(SHARED_LIB) $(STATIC_LIB)
+all: $(SHARED_LIB) $(STATIC_LIB) hlqest.py
 
 hlqest.py : hlqest.f
 	python -m numpy.f2py -c -m hlqest hlqest.f
