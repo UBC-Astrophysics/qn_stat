@@ -1,14 +1,14 @@
 CC = gcc
 AR = ar
 CFLAGS = -std=c99 -Wall -Wextra -O3 -fpic
-SRC = qn_stat.c
+SRC = robust_c.c
 OBJECT = $(patsubst %.c, %.o, $(SRC))
 SHARED_LIB = $(patsubst %.c, %.so, $(SRC))
 STATIC_LIB = $(patsubst %.c, %.a, $(SRC))
 
 .PHONY : clean
 
-all: $(SHARED_LIB) $(STATIC_LIB) hlqest.py
+all: $(SHARED_LIB) 
 
 hlqest.py : hlqest.f
 	python -m numpy.f2py -c -m hlqest hlqest.f
