@@ -25,6 +25,27 @@ In [12]: for i in range(10): print(qn_calc(np.random.normal(size=10000)))
    0.9998017180779251
 ~~~
 
+Or you can try the robusttest.py program
+~~~
+heyl@evi qn_stat-master% python robusttest.py 
+Mean Qn value:     1.00005
+Mean Std value:    0.991275
+Mean MADvalue:     0.993385
+Std of Qn:         0.0802589
+Std of MAD:        0.115005
+Std of std:        0.0709179 (0.0707107)
+Efficiency of Qn:  0.883614
+Efficiency of MAD: 0.616652
+Mean median value: -0.00205408
+Mean HL value:     -0.00103553
+Mean mean value:   -0.00128172
+Std of med:        0.124821 (0.0797885)
+Std of hl:         0.103014
+Std of mean:       0.100378 (0.1)
+Efficiency of med: 0.80418 (0.797885)
+Efficiency of hl:  0.974417
+heyl@evi qn_stat-master% 
+~~~
 Original article
 ========
 [Rousseeuw, P. J., & Croux, C. (1993). Alternatives to the median absolute deviation. Journal of the American Statistical association, 88(424), 1273-1283.](http://wis.kuleuven.be/stat/robust/papers/publications-1993/rousseeuwcroux-alternativestomedianad-jasa-1993.pdf)
