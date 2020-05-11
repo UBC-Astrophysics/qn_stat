@@ -88,7 +88,7 @@ double qn_stat(const double* x, const size_t n, qn_stat_workspace* workspace)
 	size_t* right = workspace->right;
 	size_t* p = workspace->p;
 	size_t* q = workspace->q;
-	size_t* weight = workspace->weight;
+	uint64_t* weight = workspace->weight;
 
 	double trial;
 	bool found;
@@ -334,7 +334,7 @@ static double whimed(double* a, uint64_t* w, size_t n, qn_stat_workspace* worksp
 
 static double select_kth_element(double *a, size_t n, size_t k, double* b)
 {
-	int64_t j, l, lr, jnc;
+	uint64_t j, l, lr, jnc;
 	double ax, buffer;
 
 	memcpy(b, a, n*sizeof(double));
@@ -382,6 +382,19 @@ static double select_kth_element(double *a, size_t n, size_t k, double* b)
 	return b[k];
 }
 
+/*
+C     FILE: hlqest.f
+C     ALGORITHM 616 COLLECTED ALGORITHMS FROM ACM.
+C     ALGORITHM APPEARED IN ACM-TRANS. MATH. SOFTWARE, VOL.10, NO. 3,
+C     SEP., 1984, P. 265-270.
+C
+C     HLQEST: a Fortran subprogram for computing the Hodges-Lehmann
+C     location estimator, median of ( x(i) + x(j) )/2 for
+C     1 .LE. I .LE. J .LE. n.
+C     (See J.F. Monahan, ACM TOMS 10 (1984) 265-270).
+C
+C      
+*/
 #define dmin(X,Y) ((X)<(Y)?(X):(Y))
 #define dmax(X,Y) ((X)>(Y)?(X):(Y))
 double hlqest_loc(const double *x, int *lb, int *rb, int *q, const int n)

@@ -30,7 +30,7 @@ typedef struct qn_stat_workspace
 	size_t* right;
 	size_t* p;
 	size_t* q;
-	size_t* weight;
+	uint64_t* weight;
 
 	double* a_cand;
 	double* w_cand;
