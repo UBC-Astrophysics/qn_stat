@@ -1,11 +1,11 @@
 # qn_stat
 C implementation of Rousseeuw and Croux' Qn robust measure of scale
 
-Python Wrapper:  you may have to add the current directory in front of 'qn_stat.so' in qn_calc.py: replace 'qn_stat.so' with './qn_stat.so'
+Python Wrapper:  you may have to add the current directory in front of 'robust_c.so' in robust.py: replace 'robust_c.so' with './robust_c.so'
 ~~~
-  In [11]: from qn_calc import qn_calc
+  In [11]: from robust import qn_calc
            import numpy as np
-           from qn_calc import qn_calc
+           from robust import qn_calc
            import numpy as np
            
     0.002 seconds
