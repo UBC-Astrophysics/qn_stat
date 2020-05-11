@@ -28,4 +28,5 @@ In [12]: for i in range(10): print(qn_calc(np.random.normal(size=10000)))
 Original article
 ========
 [Rousseeuw, P. J., & Croux, C. (1993). Alternatives to the median absolute deviation. Journal of the American Statistical association, 88(424), 1273-1283.](http://wis.kuleuven.be/stat/robust/papers/publications-1993/rousseeuwcroux-alternativestomedianad-jasa-1993.pdf)
+
 [J.F. Monahan, (1984). Algorithm 616: fast computation of the Hodges-Lehmann location estimator, ACM TOMS 10, 265-270](https://dl.acm.org/doi/abs/10.1145/1271.319414) [Code](http://netlib.org/toms/616.gz)
