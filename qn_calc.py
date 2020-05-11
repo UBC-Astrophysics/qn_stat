@@ -1,5 +1,3 @@
-import numpy as np
-import subprocess
 
 import ctypes
 _sum = ctypes.CDLL('qn_stat.so')
