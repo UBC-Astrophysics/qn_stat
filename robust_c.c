@@ -19,6 +19,7 @@
 #include "qn_stat.h"
 #include <stdbool.h>
 #include <string.h>
+#include <stdio.h>
 
 // Static functions declarations
 static int cmp_double(const void*, const void*);
