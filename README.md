@@ -60,6 +60,7 @@ heyl@evi qn_stat-master%
 |---------|----------|---------------|
 |Estimator|Efficiency|Breakdown Point|
 |---------|----------|---------------|
+|Estimator|Efficiency|Breakdown Point|
 
 Original article
 ========
