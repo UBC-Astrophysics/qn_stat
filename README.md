@@ -57,11 +57,16 @@ Efficiency of hl:  0.974417
 heyl@evi qn_stat-master% 
 ~~~
 
-|Estimator|Efficiency|Breakdown Point|
-|---------|----------|---------------|
-|Mean     | 100%     |       0       |
-|Median   |  80%     |       0.5     |
-|H-L      |  97%     |       0.29    |
+|Estimator     |Efficiency|Breakdown Point|
+|--------------|----------|---------------|
+|         Location                        |
+|--------------|----------|---------------|
+|Mean          | 100%     |       0       |
+|Median        |  80%     |       0.5     |
+|H-L           |  97%     |       0.29    |
+|Std Dev       | 100%     |       0       |
+|MAD           |  62%     |       0.5     |
+|Q<sub>n</sub> |  88%     |       0.5    |
 
 
 Original article
