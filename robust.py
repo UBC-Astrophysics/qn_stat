@@ -1,5 +1,5 @@
-import ctypes
-_sum = ctypes.CDLL('robust_c.so')
+import os, ctypes
+_sum = ctypes.CDLL(os.path.dirname(__file__)+os.sep+'robust_c.so')
 _sum.qn_calc.argtypes = (ctypes.POINTER(ctypes.c_double), ctypes.c_int)
 _sum.qn_calc.restype = ctypes.c_double
 
@@ -64,3 +64,6 @@ def robustcurve_fit(f,xdata,ydata,p0=None,sigma=1,
         return res.x,cov,res
     else:
         return res.x,cov
+    
+
+    
