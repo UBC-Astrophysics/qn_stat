@@ -1,7 +1,7 @@
 # qn_stat
 C implementation of Rousseeuw and Croux' Qn robust measure of scale and the Hogde-Lehmnann location estimate (after Monaghan).
 
-Python Wrapper:  you may have to add the current directory in front of 'robust_c.so' in robust.py: replace 'robust_c.so' with './robust_c.so'
+Python Wrapper:  the files robust.py and robust.so should be in the same directory.
 ~~~
   In [11]: from robust import qn_calc, hlqest
            import numpy as np
