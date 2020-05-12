@@ -1,5 +1,5 @@
 # qn_stat
-C implementation of Rousseeuw and Croux' Qn robust measure of scale
+C implementation of Rousseeuw and Croux' Qn robust measure of scale and the Hogde-Lehmnann location estimate (after Monaghan).
 
 Python Wrapper:  you may have to add the current directory in front of 'robust_c.so' in robust.py: replace 'robust_c.so' with './robust_c.so'
 ~~~
@@ -34,7 +34,8 @@ and estimators of the location:
 * Mean
 * Median
 * Hodge-Lehman (HL)
-The best combination of robustness and efficiency is Q<sub>n</sub> and Hodges-Lehmann.
+
+The best combination of robustness and efficiency is Q<sub>n</sub> and Hodges-Lehmann.  This calculates the efficiency of the estimators relative to the mean and standard derivation which are the most efficient for a normal distribution.
 ~~~
 heyl@evi qn_stat-master% python robusttest.py 
 Mean Qn value:     1.00005
@@ -55,6 +56,11 @@ Efficiency of med: 0.80418 (0.797885)
 Efficiency of hl:  0.974417
 heyl@evi qn_stat-master% 
 ~~~
+
+|---------|----------|---------------|
+|Estimator|Efficiency|Breakdown Point|
+|---------|----------|---------------|
+
 Original article
 ========
 [Rousseeuw, P. J., & Croux, C. (1993). Alternatives to the median absolute deviation. Journal of the American Statistical association, 88(424), 1273-1283.](http://wis.kuleuven.be/stat/robust/papers/publications-1993/rousseeuwcroux-alternativestomedianad-jasa-1993.pdf)
