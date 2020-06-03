@@ -1,7 +1,7 @@
 import os, ctypes
 try:
     _sum = ctypes.CDLL(os.path.dirname(__file__)+os.sep+'robust_c.so')
-catch OSError e:
+except OSError e:
     print('Hello')
     throw(e)
     
