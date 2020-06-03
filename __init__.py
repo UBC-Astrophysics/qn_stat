@@ -1,5 +1,10 @@
 import os, ctypes
-_sum = ctypes.CDLL(os.path.dirname(__file__)+os.sep+'robust_c.so')
+try:
+    _sum = ctypes.CDLL(os.path.dirname(__file__)+os.sep+'robust_c.so')
+catch OSError e:
+    print('Hello')
+    throw(e)
+    
 _sum.qn_calc.argtypes = (ctypes.POINTER(ctypes.c_double), ctypes.c_int)
 _sum.qn_calc.restype = ctypes.c_double
 
