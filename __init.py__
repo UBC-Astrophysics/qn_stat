@@ -1,3 +1,10 @@
+import os, ctypes
+_sum = ctypes.CDLL(os.path.dirname(__file__)+os.sep+'robust_c.so')
+_sum.qn_calc.argtypes = (ctypes.POINTER(ctypes.c_double), ctypes.c_int)
+_sum.qn_calc.restype = ctypes.c_double
+
+_sum.hlqest.argtypes = (ctypes.POINTER(ctypes.c_double), ctypes.c_int)
+_sum.hlqest.restype = ctypes.c_double
 
 
 def qn_calc(x):
