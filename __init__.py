@@ -2,14 +2,14 @@ import os, ctypes
 try:
     _sum = ctypes.CDLL(os.path.dirname(__file__)+os.sep+'robust_c.so')
 except OSError as e:
-    print('Hello')
+    print('The qn_stat package uses a C shared library.  Please go to the qn_stat directory and execute "make".')
     raise e
-    
-_sum.qn_calc.argtypes = (ctypes.POINTER(ctypes.c_double), ctypes.c_int)
-_sum.qn_calc.restype = ctypes.c_double
+else:    
+    _sum.qn_calc.argtypes = (ctypes.POINTER(ctypes.c_double), ctypes.c_int)
+    _sum.qn_calc.restype = ctypes.c_double
 
-_sum.hlqest.argtypes = (ctypes.POINTER(ctypes.c_double), ctypes.c_int)
-_sum.hlqest.restype = ctypes.c_double
+    _sum.hlqest.argtypes = (ctypes.POINTER(ctypes.c_double), ctypes.c_int)
+    _sum.hlqest.restype = ctypes.c_double
 
 
 def qn_calc(x):
