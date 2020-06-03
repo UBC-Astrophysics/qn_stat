@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+
+__version__ = "1.0.1.dev0"
+__author__ = "Jeremy Heyl (heyl@phas.ubc.ca)"
+__contributors__ = [
+    # Alphabetical by first name.
+    "John F. Monaghan (NC State)",
+    "Florian Plaza Oñate @fplaza",
+]
+
+
 import os, ctypes
 try:
     _sum = ctypes.CDLL(os.path.dirname(__file__)+os.sep+'robust_c.so')
