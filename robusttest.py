@@ -37,7 +37,7 @@ if True:
     rq=np.std(ans_med)
     rs=np.std(ans_mean)
     rl=np.std(ans_hl)
-    print('Std of med:        %g (%g)' % (rq,(len(rr)*np.pi/2)**-0.5))
+    print('Std of med:        %g (%g)' % (rq,(len(rr)/(np.pi/2))**-0.5))
     print('Std of hl:         %g' % rl)
     print('Std of mean:       %g (%g)' % (rs,(len(rr)*1.)**-0.5))
     print('Efficiency of med: %g (%g)' % (rs/rq,(np.pi/2)**-0.5))
