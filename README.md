@@ -57,7 +57,7 @@ Efficiency of hl:  0.974417
 heyl@evi qn_stat-master% 
 ~~~
 
-The breakdown point is the fraction of outliers (values that can be set to infinity or negative infinity) within changing the value of the estimator.  The efficiency is the ratio of the standard derivation of the estimator for a sample of normally distribution to the standard derivation for the corresponding maximum likelihood estimator (e.g. the mean and standard deviation).
+The breakdown point is the fraction of outliers (values that can be set to infinity or negative infinity) without changing the value of the estimator.  The efficiency is the ratio of the standard derivation of the estimator for a sample of normally distributed data to the standard derivation for the corresponding maximum likelihood estimator (e.g. the mean and standard deviation).
 
 |Estimator     |Efficiency|Breakdown Point|
 |--------------|----------|---------------|
